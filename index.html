@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCAP Productions — Design Mockups</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    background: #06060a;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1.2rem;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  header h1 {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    font-weight: 300;
+  }
+  header p {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: #333;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  /* ── CARD ── */
+  .card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #1c1c28;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .card:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.6); }
+
+  /* ── IFRAME PREVIEW ── */
+  .preview-window {
+    /* Scales with the viewport — tall enough to be useful,
+       capped so there's always breathing room above and below. */
+    height: clamp(260px, 42vh, 440px);
+    overflow: hidden;
+    position: relative;
+  }
+  .preview-window iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1440px;
+    height: 960px;
+    border: none;
+    pointer-events: none;
+    transform-origin: top left;
+    /* Scale computed by JS once the card size is known */
+  }
+
+  /* ── CAPTION ── */
+  .caption {
+    flex-shrink: 0;
+    padding: 0.65rem 0.9rem;
+    border-top: 1px solid #1c1c28;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .caption-num {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    white-space: nowrap;
+  }
+  .caption-divider {
+    width: 1px;
+    height: 20px;
+    background: currentColor;
+    opacity: 0.15;
+    flex-shrink: 0;
+  }
+  .caption-text {}
+  .caption-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+  .caption-desc {
+    display: block;
+    font-size: 0.58rem;
+    opacity: 0.45;
+    letter-spacing: 0.04em;
+    margin-top: 0.15rem;
+    line-height: 1.4;
+  }
+
+  /* "Open" pill, top-right on hover */
+  .card-open {
+    position: absolute;
+    top: 0.6rem; right: 0.6rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid currentColor;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+  }
+  .card:hover .card-open { opacity: 1; }
+
+  /* ── PER-CARD COLOURS ── */
+  /* 1 — Dark Cinematic */
+  .card-1 { border-color: #252530; }
+  .card-1:hover { border-color: #c9a84c; }
+  .card-1, .card-1 .caption { color: #c9a84c; }
+  .card-1 .caption { background: #0d0d12; border-top-color: #252530; }
+
+  /* 2 — Modern Minimalist */
+  .card-2 { border-color: #d0cbbf; }
+  .card-2:hover { border-color: #8b1a1a; }
+  .card-2, .card-2 .caption { color: #8b1a1a; }
+  .card-2 .caption { background: #f4f1ea; border-top-color: #d0cbbf; }
+  .card-2 .caption-desc { color: #777; opacity: 1; }
+
+  /* 3 — Retro Indie */
+  .card-3 { border-color: #3a1016; }
+  .card-3:hover { border-color: #f5c842; }
+  .card-3, .card-3 .caption { color: #f5c842; }
+  .card-3 .caption { background: #360d12; border-top-color: #4a1218; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CCAP Productions — Website Design</h1>
+  <p>Three design directions &nbsp;·&nbsp; click to open full preview</p>
+</header>
+
+<div class="grid">
+
+  <a href="mockup-1-dark-cinematic.html" class="card card-1">
+    <div class="preview-window">
+      <iframe src="mockup-1-dark-cinematic.html" scrolling="no" title="Mockup 1"></iframe>
+    </div>
+    <div class="caption">
+      <span class="caption-num">01</span>
+      <div class="caption-divider"></div>
+      <div class="caption-text">
+        <span class="caption-title">Dark Cinematic</span>
+        <span class="caption-desc">Black background · Gold · Prestige serif</span>
+      </div>
+    </div>
+    <div class="card-open">Open →</div>
+  </a>
+
+  <a href="mockup-2-minimalist.html" class="card card-2">
+    <div class="preview-window">
+      <iframe src="mockup-2-minimalist.html" scrolling="no" title="Mockup 2"></iframe>
+    </div>
+    <div class="caption">
+      <span class="caption-num">02</span>
+      <div class="caption-divider"></div>
+      <div class="caption-text">
+        <span class="caption-title">Modern Minimalist</span>
+        <span class="caption-desc">Cream &amp; white · Crimson · Bold display type</span>
+      </div>
+    </div>
+    <div class="card-open">Open →</div>
+  </a>
+
+  <a href="mockup-3-retro-indie.html" class="card card-3">
+    <div class="preview-window">
+      <iframe src="mockup-3-retro-indie.html" scrolling="no" title="Mockup 3"></iframe>
+    </div>
+    <div class="caption">
+      <span class="caption-num">03</span>
+      <div class="caption-divider"></div>
+      <div class="caption-text">
+        <span class="caption-title">Retro Indie</span>
+        <span class="caption-desc">Deep burgundy · Yellow · Vintage poster</span>
+      </div>
+    </div>
+    <div class="card-open">Open →</div>
+  </a>
+
+</div>
+
+<script>
+  // Scale each iframe so it fills its preview-window container exactly.
+  // Runs once on load and again if the window is resized.
+  function scaleIframes() {
+    document.querySelectorAll('.preview-window').forEach(win => {
+      const iframe = win.querySelector('iframe');
+      if (!iframe) return;
+      const scale = win.clientWidth / 1440;
+      iframe.style.transform = `scale(${scale})`;
+    });
+  }
+  window.addEventListener('load',   scaleIframes);
+  window.addEventListener('resize', scaleIframes);
+  scaleIframes();
+</script>
+</body>
+</html>
