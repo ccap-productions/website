@@ -310,6 +310,50 @@
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 0.7rem; color: var(--border); }
 
+  
+  /* ── POLAROID CAROUSEL ────────────────────────────────────────── */
+  .pc-section {
+    background: #06060a;
+    overflow: hidden;
+    padding: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .pc-label {
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #333;
+    padding-bottom: 0.5rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .pc-row { overflow: hidden; }
+  .pc-track {
+    display: flex;
+    gap: 18px;
+    width: max-content;
+  }
+  .pc-track-1 { animation: pc-scroll 90s linear infinite; }
+  .pc-track-2 { animation: pc-scroll 72s linear infinite reverse; }
+  @keyframes pc-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .pc-img {
+    width: 210px;
+    flex-shrink: 0;
+    display: block;
+    box-shadow: 3px 5px 20px rgba(0,0,0,0.75);
+  }
+  .pc-img:nth-child(6n+1) { transform: rotate(-4deg); }
+  .pc-img:nth-child(6n+2) { transform: rotate( 2.5deg); }
+  .pc-img:nth-child(6n+3) { transform: rotate(-1.5deg); }
+  .pc-img:nth-child(6n+4) { transform: rotate( 4deg); }
+  .pc-img:nth-child(6n+5) { transform: rotate(-3deg); }
+  .pc-img:nth-child(6n+6) { transform: rotate( 1deg); }
+
   /* ── LABEL BANNER ── */
   .mockup-label {
     position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
@@ -437,6 +481,140 @@
           <div style="font-family:var(--serif);font-size:0.95rem;color:var(--white);">Fat Rocco</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- POLAROID CAROUSEL -->
+<section class="pc-section">
+  <div class="pc-label">Behind the Scenes &nbsp;·&nbsp; On Set &nbsp;·&nbsp; Festivals</div>
+  <div class="pc-row">
+    <div class="pc-track pc-track-1">
+      <img src="./photos/polaroids/polaroid_001.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_002.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_003.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_004.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_005.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_006.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_007.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_008.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_009.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_010.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_011.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_012.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_013.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_014.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_015.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_016.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_017.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_018.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_019.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_020.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_021.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_022.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_023.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_024.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_025.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_026.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_027.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_028.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_029.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_030.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_001.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_002.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_003.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_004.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_005.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_006.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_007.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_008.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_009.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_010.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_011.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_012.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_013.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_014.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_015.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_016.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_017.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_018.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_019.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_020.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_021.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_022.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_023.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_024.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_025.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_026.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_027.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_028.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_029.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_030.png" class="pc-img" loading="lazy" alt="">
+    </div>
+  </div>
+  <div class="pc-row">
+    <div class="pc-track pc-track-2">
+      <img src="./photos/polaroids/polaroid_031.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_032.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_033.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_034.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_035.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_036.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_037.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_038.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_039.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_040.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_041.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_042.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_043.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_044.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_045.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_046.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_047.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_048.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_049.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_050.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_051.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_052.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_053.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_054.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_055.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_056.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_057.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_058.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_059.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_060.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_031.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_032.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_033.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_034.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_035.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_036.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_037.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_038.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_039.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_040.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_041.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_042.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_043.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_044.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_045.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_046.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_047.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_048.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_049.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_050.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_051.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_052.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_053.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_054.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_055.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_056.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_057.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_058.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_059.png" class="pc-img" loading="lazy" alt="">
+      <img src="./photos/polaroids/polaroid_060.png" class="pc-img" loading="lazy" alt="">
     </div>
   </div>
 </section>
