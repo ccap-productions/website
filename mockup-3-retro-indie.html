@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCAP Productions — Mockup 3: Retro Indie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --maroon:   #4a1218;
+    --maroon-d: #360d12;
+    --maroon-m: #6b1c24;
+    --cream:    #f5f0e8;
+    --cream-d:  #e8e0d0;
+    --yellow:   #f5c842;
+    --yellow-d: #d4a820;
+    --black:    #1a1008;
+    --gray:     #8a7a6a;
+    --serif:    'Abril Fatface', cursive;
+    --mono:     'Courier Prime', 'Courier New', monospace;
+    --cond:     'Oswald', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: var(--mono);
+    line-height: 1.7;
+  }
+
+  /* ── FILM STRIP DECORATIVE ── */
+  .filmstrip {
+    height: 36px;
+    background: var(--black);
+    display: flex; align-items: center; overflow: hidden;
+    position: relative;
+  }
+  .filmstrip-inner {
+    display: flex; gap: 0; flex-shrink: 0;
+    animation: ticker 20s linear infinite;
+  }
+  .filmstrip-hole {
+    width: 22px; height: 16px;
+    background: var(--cream); border-radius: 3px;
+    margin: 0 8px;
+    flex-shrink: 0;
+  }
+  .filmstrip-text {
+    color: var(--yellow); font-family: var(--mono);
+    font-size: 0.65rem; letter-spacing: 0.3em;
+    text-transform: uppercase; white-space: nowrap;
+    padding: 0 2rem;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--maroon);
+    border-bottom: 4px solid var(--yellow);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4rem;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--yellow);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-family: var(--cond); font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--cream);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--yellow); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--maroon-d);
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Decorative vertical rules */
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 1px;
+    background: rgba(245,200,66,0.1);
+  }
+  .hero::before { left: 33.33%; }
+  .hero::after  { left: 66.66%; }
+
+  .hero-left {
+    padding: 5rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 2px solid rgba(245,200,66,0.2);
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 2px solid var(--yellow);
+    color: var(--yellow);
+    font-family: var(--cond); font-size: 0.7rem;
+    font-weight: 500; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem; margin-bottom: 2.5rem;
+    width: fit-content;
+  }
+  h1.hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 0.2em;
+  }
+  h1.hero-title .co { color: var(--yellow); }
+  .hero-rule {
+    width: 60px; height: 3px;
+    background: var(--yellow);
+    margin: 2rem 0;
+  }
+  .hero-tagline {
+    font-family: var(--mono); font-style: italic;
+    font-size: 1.05rem; color: rgba(245,240,232,0.6);
+    max-width: 340px; line-height: 1.7;
+  }
+  .hero-buttons { display: flex; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
+  .btn-yellow {
+    background: var(--yellow); color: var(--black);
+    font-family: var(--cond); font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 0.8rem 1.8rem;
+    text-decoration: none; transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-yellow:hover { background: var(--yellow-d); }
+  .btn-ghost {
+    border: 2px solid rgba(245,200,66,0.4); color: var(--cream);
+    font-family: var(--cond); font-size: 0.78rem;
+    font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 0.8rem 1.8rem;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    min-height: 500px;
+  }
+  .hero-right-bg {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(74,18,24,0.4) 0px,
+        rgba(74,18,24,0.4) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      linear-gradient(135deg, var(--maroon) 0%, var(--maroon-d) 100%);
+  }
+  .hero-right-content {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.5rem; z-index: 1;
+  }
+  .hero-poster-frame {
+    width: 220px;
+    border: 3px solid var(--yellow);
+    padding: 4px;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
+  }
+  .hero-poster-inner {
+    aspect-ratio: 2/3;
+    background: linear-gradient(160deg, #6b1c24 0%, #2a0810 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-poster-placeholder {
+    color: rgba(245,200,66,0.3); text-align: center;
+    font-family: var(--serif); font-size: 1rem; padding: 1rem;
+  }
+  .hero-award-badge {
+    background: var(--yellow); color: var(--black);
+    font-family: var(--cond); font-size: 0.65rem;
+    font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 0.5rem 1.2rem;
+    text-align: center;
+  }
+
+  /* ── DIVIDER STRIP ── */
+  .strip {
+    background: var(--yellow);
+    padding: 0.9rem 4rem;
+    display: flex; align-items: center; gap: 3rem; overflow: hidden;
+  }
+  .strip-item {
+    font-family: var(--cond); font-size: 0.8rem;
+    font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--black);
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .strip-item::before { content: '✦'; font-size: 0.6rem; }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--cream-d);
+    padding: 6rem 4rem;
+    border-bottom: 4px solid var(--maroon);
+  }
+  .about-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+  }
+  .section-label {
+    font-family: var(--cond); font-size: 0.72rem;
+    font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--maroon);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before {
+    content: ''; display: inline-block;
+    width: 20px; height: 3px; background: var(--maroon);
+  }
+  h2.section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    line-height: 1.05; color: var(--maroon);
+    margin-bottom: 1.5rem;
+  }
+  .about-body { font-size: 1rem; color: #5a4a3a; line-height: 1.9; }
+  .about-body p + p { margin-top: 1.2em; }
+  .about-aside {
+    background: var(--maroon);
+    padding: 2.5rem;
+    border-left: 4px solid var(--yellow);
+    margin-top: 2rem;
+  }
+  .aside-quote {
+    font-family: var(--serif); font-size: 1.5rem;
+    color: var(--cream); line-height: 1.4; margin-bottom: 1rem;
+  }
+  .aside-attr {
+    font-family: var(--cond); font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow);
+  }
+
+  /* ── FILMS ── */
+  .films {
+    background: var(--maroon);
+    padding: 6rem 4rem;
+    border-bottom: 4px solid var(--yellow);
+  }
+  .films .section-label { color: var(--yellow); }
+  .films .section-label::before { background: var(--yellow); }
+  .films h2.section-title { color: var(--cream); }
+  .films-inner { max-width: 1100px; margin: 0 auto; }
+  .films-header { margin-bottom: 4rem; }
+  .films-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .film-card {
+    background: var(--maroon-d);
+    border: 2px solid rgba(245,200,66,0.2);
+    overflow: hidden; position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .film-card:hover { border-color: var(--yellow); transform: translateY(-4px); }
+  .film-card-visual {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #6b1c24 0%, #2a0810 60%, #4a1218 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    border-bottom: 2px solid rgba(245,200,66,0.2);
+  }
+  .film-card-placeholder {
+    color: rgba(245,200,66,0.2); font-family: var(--serif);
+    font-size: 0.9rem; text-align: center; padding: 1rem;
+  }
+  .film-card-ribbon {
+    position: absolute; top: 1rem; right: -8px;
+    background: var(--yellow); color: var(--black);
+    font-family: var(--cond); font-size: 0.6rem;
+    font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 0.3rem 1rem 0.3rem 0.8rem;
+  }
+  .film-card-ribbon::after {
+    content: '';
+    position: absolute; bottom: -8px; right: 0;
+    border-width: 8px 8px 0 0;
+    border-style: solid;
+    border-color: #9a8a00 transparent transparent transparent;
+  }
+  .film-card-body { padding: 1.8rem; }
+  .film-card-year {
+    font-family: var(--cond); font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow);
+    margin-bottom: 0.5rem;
+  }
+  .film-card-title {
+    font-family: var(--serif); font-size: 2rem;
+    color: var(--cream); line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .film-card-desc {
+    font-size: 0.85rem; color: rgba(245,240,232,0.55); line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .film-card-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .film-card-link {
+    font-family: var(--cond); font-size: 0.68rem;
+    font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--yellow);
+    text-decoration: none; border-bottom: 1px solid rgba(245,200,66,0.3);
+    padding-bottom: 2px; transition: border-color 0.2s;
+  }
+  .film-card-link:hover { border-color: var(--yellow); }
+
+  /* ── AWARDS ── */
+  .awards {
+    background: var(--cream);
+    padding: 6rem 4rem;
+    border-bottom: 4px solid var(--maroon);
+  }
+  .awards-inner { max-width: 1100px; margin: 0 auto; }
+  .awards-header { margin-bottom: 4rem; }
+  .awards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .award-card {
+    border: 2px solid var(--maroon);
+    padding: 2rem;
+    position: relative;
+    background: white;
+    transition: transform 0.2s;
+  }
+  .award-card:hover { transform: translateY(-4px); }
+  .award-card::before {
+    content: '★';
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: white; padding: 0 0.5rem;
+    color: var(--yellow-d); font-size: 1.2rem;
+  }
+  .award-card-category {
+    font-family: var(--cond); font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--maroon);
+    margin-bottom: 0.6rem;
+  }
+  .award-card-title {
+    font-family: var(--serif); font-size: 1.4rem;
+    color: var(--black); margin-bottom: 0.4rem;
+  }
+  .award-card-festival {
+    font-family: var(--mono); font-size: 0.78rem;
+    color: var(--gray); margin-bottom: 0.3rem;
+  }
+  .award-card-year {
+    font-family: var(--cond); font-size: 0.68rem;
+    letter-spacing: 0.15em; color: var(--maroon);
+  }
+
+  /* ── WATCH ── */
+  .watch {
+    background: var(--maroon-d);
+    padding: 6rem 4rem;
+  }
+  .watch .section-label { color: var(--yellow); }
+  .watch .section-label::before { background: var(--yellow); }
+  .watch h2.section-title { color: var(--cream); }
+  .watch-inner { max-width: 1100px; margin: 0 auto; }
+  .watch-header { margin-bottom: 4rem; }
+  .watch-layout {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: start;
+  }
+  .watch-embed {
+    aspect-ratio: 16/9;
+    background: var(--maroon);
+    border: 3px solid rgba(245,200,66,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .watch-embed-inner {
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(74,18,24,0.5) 0px,
+      rgba(74,18,24,0.5) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-btn {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 3px solid var(--yellow);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(245,200,66,0.1);
+    transition: background 0.2s; cursor: pointer;
+  }
+  .play-btn:hover { background: rgba(245,200,66,0.2); }
+  .play-btn::after {
+    content: ''; border-style: solid;
+    border-width: 11px 0 11px 20px;
+    border-color: transparent transparent transparent var(--yellow);
+    margin-left: 5px;
+  }
+  .watch-links { display: flex; flex-direction: column; gap: 1rem; }
+  .watch-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid rgba(245,200,66,0.2);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    background: rgba(74,18,24,0.4);
+  }
+  .watch-link:hover { border-color: var(--yellow); background: rgba(74,18,24,0.7); }
+  .watch-link-text {}
+  .watch-link-platform {
+    font-family: var(--cond); font-size: 0.6rem;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow);
+    margin-bottom: 0.3rem;
+  }
+  .watch-link-name {
+    font-family: var(--serif); font-size: 1.1rem; color: var(--cream);
+  }
+  .watch-link-arrow { color: var(--yellow); font-size: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 4px solid var(--yellow);
+  }
+  .footer-top {
+    padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #2a2010;
+  }
+  .footer-logo {
+    font-family: var(--serif); font-size: 2rem; color: var(--yellow);
+  }
+  .footer-tagline {
+    font-family: var(--mono); font-style: italic;
+    color: #5a4a3a; font-size: 0.9rem;
+  }
+  .footer-links-wrap { display: flex; gap: 2rem; }
+  .footer-links-wrap a {
+    font-family: var(--cond); font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #5a4a3a; text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links-wrap a:hover { color: var(--yellow); }
+  .footer-bottom {
+    padding: 1.2rem 4rem;
+    display: flex; justify-content: space-between;
+  }
+  .footer-copy {
+    font-family: var(--mono); font-size: 0.72rem; color: #3a2a1a;
+  }
+
+  /* ── MOCKUP LABEL ── */
+  .mockup-label {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
+    background: var(--yellow); color: var(--black);
+    font-family: var(--cond); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    pointer-events: none;
+    border: 2px solid var(--maroon);
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-label">Mockup 3 — Retro Indie</div>
+
+<!-- FILM STRIP TOP -->
+<div class="filmstrip">
+  <div class="filmstrip-inner">
+    <!-- repeated twice for seamless loop -->
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">CCAP Productions, LLC</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Independent Film</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Award-Winning Cinema</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Private Limo</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">CCAP Productions, LLC</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Independent Film</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Award-Winning Cinema</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Private Limo</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">CCAP Productions</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#films">Films</a>
+    <a href="#awards">Awards</a>
+    <a href="#watch">Watch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Independent Film Production</div>
+    <h1 class="hero-title">
+      CCAP<br>
+      <span class="co">Pro</span>ductions
+    </h1>
+    <div class="hero-rule"></div>
+    <div class="hero-tagline">Stories that make you laugh, think, and look twice at the guy driving your limo.</div>
+    <div class="hero-buttons">
+      <a class="btn-yellow" href="#films">Our Films</a>
+      <a class="btn-ghost" href="#awards">Awards</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg" style="background-image:url('./photos/rocco_1.41.1.jpg');background-size:cover;background-position:center 20%;"></div>
+    <div class="hero-right-content">
+      <div class="hero-poster-frame">
+        <div class="hero-poster-inner" style="padding:0;overflow:hidden;">
+          <img src="./4a16bb76ce-poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        </div>
+      </div>
+      <div class="hero-award-badge">✦ Best Comedy · Hollywood Best Indie Film Awards 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- YELLOW STRIP -->
+<div class="strip">
+  <div class="strip-item">Award-Winning Comedy</div>
+  <div class="strip-item">Independent Production</div>
+  <div class="strip-item">Now Streaming</div>
+  <div class="strip-item">Hollywood Best Indie Film Awards</div>
+  <div class="strip-item">Award-Winning Comedy</div>
+  <div class="strip-item">Independent Production</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-label">About</div>
+      <h2 class="section-title">Small Company.<br>Real Films.</h2>
+      <div class="about-aside">
+        <div class="aside-quote">"The best stories don't need a studio — they just need people who care."</div>
+        <div class="aside-attr">— CCAP Productions</div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>CCAP Productions, LLC is an independent film production company that believes the most compelling stories come from honest, specific, character-driven work — not committee-approved formulas.</p>
+      <p>We make films and series that find the comedy in the human condition: the absurd situations, the characters you recognize from real life, the moments that are equal parts ridiculous and true.</p>
+      <p>Our work has earned recognition at film festivals and competitions nationwide, including awards for comedy, writing, and direction.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:1.5rem;">
+        <img src="./photos/whipped-cream.jpg"  style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;object-position:top;">
+        <img src="./photos/house-of-fun.jpg"   style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;object-position:center;">
+        <img src="./photos/gary-siobhan.jpg"   style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;object-position:top;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILMS -->
+<section class="films" id="films">
+  <div class="films-inner">
+    <div class="films-header">
+      <div class="section-label">Productions</div>
+      <h2 class="section-title">Our Films</h2>
+    </div>
+    <div class="films-grid">
+
+      <div class="film-card">
+        <div class="film-card-visual" style="padding:0;overflow:hidden;">
+          <img src="./4a16bb76ce-poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <div class="film-card-ribbon">6 Awards Won</div>
+        </div>
+        <div class="film-card-body">
+          <div class="film-card-year">2022 – Present · Comedy Series</div>
+          <div class="film-card-title">Private Limo</div>
+          <p class="film-card-desc">Felipe runs a private limo company with more enthusiasm than tact. What follows is a comedy series about the hilarious situations that arise when one very inappropriate man gives the very wrong people a ride.</p>
+          <div class="film-card-links">
+            <a class="film-card-link" href="https://www.youtube.com/@garyweeks1439" target="_blank">Watch on YouTube</a>
+            <a class="film-card-link" href="https://www.imdb.com/title/tt32534322/" target="_blank">View on IMDb</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards" id="awards">
+  <div class="awards-inner">
+    <div class="awards-header">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">Awards &amp; Honors</h2>
+    </div>
+    <!-- Laurels -->
+    <div style="background:#fff;padding:22px 22px 14px;margin-bottom:3rem;">
+
+      <div style="font-family:var(--cond);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#aaa;margin-bottom:8px;font-weight:500;">Award Winners</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:14px;">
+        <img src="./laurels/winner-portland-comedy-2023.png"  style="width:100%;height:auto;display:block;">
+        <img src="./laurels/winner-hollywood-best-2026.png"   style="width:100%;height:auto;display:block;">
+        <img src="./laurels/winner-la-doc-2026.png"           style="width:100%;height:auto;display:block;">
+        <img src="./laurels/winner-ny-actress-2026.png"       style="width:100%;height:auto;display:block;">
+        <img src="./laurels/winner-hollywood-intl-2026.png"   style="width:100%;height:auto;display:block;">
+        <img src="./laurels/winner-tokyo-2026.png"            style="width:100%;height:auto;display:block;">
+      </div>
+
+      <div style="font-family:var(--cond);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#aaa;margin-bottom:8px;font-weight:500;">Finalists</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:14px;">
+        <div></div><div></div>
+        <img src="./laurels/finalist-portland-2023.png" style="width:100%;height:auto;display:block;">
+        <img src="./laurels/finalist-houston-2023.png"  style="width:100%;height:auto;display:block;">
+        <div></div><div></div>
+      </div>
+
+      <div style="font-family:var(--cond);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#aaa;margin-bottom:8px;font-weight:500;">Official Selections</div>
+      <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:5px;">
+        <img src="./laurels/sel-la-short-2026.png"            style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-canadian-tamil-a-2025.png"    style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-canadian-tamil-b-2025.png"    style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-niagara-2025.png"             style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-pickering-2025.png"           style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-portland-2024.png"            style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-pickering-2024.png"           style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-toronto-2024.png"             style="width:100%;height:auto;display:block;">
+        <img src="./laurels/sel-niagara-2024.png"             style="width:100%;height:auto;display:block;">
+      </div>
+
+    </div>
+
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-card-category">Best Comedy · Ep 2</div>
+        <div class="award-card-title">Portland Comedy Film Festival</div>
+        <div class="award-card-festival">Comedy Series Episode</div>
+        <div class="award-card-year">2023</div>
+      </div>
+      <div class="award-card">
+        <div class="award-card-category">Best Comedy · Ep 5</div>
+        <div class="award-card-title">Hollywood Best Indie Film Awards</div>
+        <div class="award-card-festival">Comedy</div>
+        <div class="award-card-year">2026</div>
+      </div>
+      <div class="award-card">
+        <div class="award-card-category">Best Web Series</div>
+        <div class="award-card-title">LA Film &amp; Documentary Award</div>
+        <div class="award-card-festival">Web Series</div>
+        <div class="award-card-year">2026</div>
+      </div>
+      <div class="award-card">
+        <div class="award-card-category">Best Comedy</div>
+        <div class="award-card-title">New York Film &amp; Actress Award</div>
+        <div class="award-card-festival">Comedy</div>
+        <div class="award-card-year">2026</div>
+      </div>
+      <div class="award-card">
+        <div class="award-card-category">Best Short Film · Ep 5</div>
+        <div class="award-card-title">Hollywood Int'l Indie Film Awards</div>
+        <div class="award-card-festival">Low Budget Short Film</div>
+        <div class="award-card-year">2026</div>
+      </div>
+      <div class="award-card">
+        <div class="award-card-category">Best Web Series</div>
+        <div class="award-card-title">Tokyo Film &amp; Screenplay Awards</div>
+        <div class="award-card-festival">Web Series</div>
+        <div class="award-card-year">2026</div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(245,240,232,0.35);font-family:var(--mono);letter-spacing:0.08em;">
+      + 2 Finalists &nbsp;·&nbsp; 9 Official Selections &nbsp;·&nbsp; US · Canada · UK · Japan · Australia
+    </p>
+  </div>
+</section>
+
+<!-- WATCH -->
+<section class="watch" id="watch">
+  <div class="watch-inner">
+    <div class="watch-header">
+      <div class="section-label">Watch</div>
+      <h2 class="section-title">See Our Work</h2>
+    </div>
+    <div class="watch-layout">
+      <div class="watch-embed">
+        <div class="watch-embed-inner" style="background:url('./photos/blue-car.jpg') center/cover no-repeat;position:relative;">
+          <div style="position:absolute;inset:0;background:rgba(74,18,24,0.5);"></div>
+          <div class="play-btn" style="position:relative;z-index:1;"></div>
+        </div>
+      </div>
+      <div class="watch-links">
+        <a class="watch-link" href="https://www.youtube.com/@garyweeks1439" target="_blank">
+          <div class="watch-link-text">
+            <div class="watch-link-platform">YouTube</div>
+            <div class="watch-link-name">Gary Weeks Channel</div>
+          </div>
+          <div class="watch-link-arrow">→</div>
+        </a>
+        <a class="watch-link" href="https://www.youtube.com/@CCAP-Productions" target="_blank">
+          <div class="watch-link-text">
+            <div class="watch-link-platform">YouTube</div>
+            <div class="watch-link-name">CCAP Productions</div>
+          </div>
+          <div class="watch-link-arrow">→</div>
+        </a>
+        <a class="watch-link" href="https://www.imdb.com/title/tt32534322/" target="_blank">
+          <div class="watch-link-text">
+            <div class="watch-link-platform">IMDb</div>
+            <div class="watch-link-name">Private Limo</div>
+          </div>
+          <div class="watch-link-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM STRIP BOTTOM -->
+<div class="filmstrip">
+  <div class="filmstrip-inner">
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">CCAP Productions, LLC · Est. 2022</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Private Limo · Comedy Series</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Hollywood Best Indie Film Awards</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">CCAP Productions, LLC · Est. 2022</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Private Limo · Comedy Series</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+    <span class="filmstrip-text">Hollywood Best Indie Film Awards</span>
+    <div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">CCAP Productions</div>
+    <div class="footer-tagline">Independent Film Production, LLC</div>
+    <div class="footer-links-wrap">
+      <a href="https://www.youtube.com/@garyweeks1439" target="_blank">YouTube</a>
+      <a href="https://www.imdb.com/title/tt32534322/" target="_blank">IMDb</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 CCAP Productions, LLC · All Rights Reserved</div>
+    <div class="footer-copy">Made in the American South</div>
+  </div>
+</footer>
+
+</body>
+</html>
