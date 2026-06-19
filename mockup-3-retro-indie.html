@@ -474,6 +474,9 @@
     font-family: var(--mono); font-size: 0.72rem; color: #3a2a1a;
   }
 
+  /* Below-photo badge: desktop hidden, mobile shown via media query */
+  .hero-award-badge-below { display: none; }
+
   /* ══════════════════════════════════════════════
      MOBILE / RESPONSIVE  (≤ 768 px)
   ══════════════════════════════════════════════ */
@@ -483,6 +486,10 @@
     nav { padding: 0.8rem 1.2rem; }
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.72rem; }
+
+    /* Badge moves below the photo on mobile */
+    .hero-right-content { display: none !important; }
+    .hero-award-badge-below { display: block !important; }
 
     /* Hero — split 2-col → single col, left on top */
     .hero { grid-template-columns: 1fr !important; min-height: auto; }
@@ -659,6 +666,8 @@
     </div>
   </div>
 </header>
+<!-- Mobile-only award badge — sits below the photo in normal flow -->
+<div class="hero-award-badge hero-award-badge-below">✦ 6 Awards Won &nbsp;·&nbsp; 2 Finalists &nbsp;·&nbsp; 9 Official Selections</div>
 
 <!-- YELLOW STRIP -->
 <div class="strip">
