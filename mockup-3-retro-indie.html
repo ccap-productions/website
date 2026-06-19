@@ -488,6 +488,7 @@
     .hero { grid-template-columns: 1fr !important; min-height: auto; }
     .hero-left { padding: 4rem 1.5rem 2rem; border-right: none; border-bottom: 2px solid rgba(245,200,66,0.2); }
     .hero-right { min-height: 75vw; }
+    .hero-right-bg { background-position: center 8% !important; }
     h1.hero-title { font-size: clamp(3rem, 12vw, 6rem); }
     .hero-tagline { font-size: 0.9rem; }
     .hero::before, .hero::after { display: none; }
@@ -530,6 +531,7 @@
   @media (max-width: 480px) {
     .nav-links { display: none; }
     .hero-right { min-height: 90vw; }
+    .hero-right-bg { background-position: center 5% !important; }
     .awards-grid { grid-template-columns: 1fr !important; }
     div[id$="-laurels"] > div[style*="repeat(6"] { grid-template-columns: repeat(2, 1fr) !important; }
     div[id$="-laurels"] > div[style*="repeat(9"] { grid-template-columns: repeat(3, 1fr) !important; }
