@@ -354,6 +354,62 @@
   .pc-img:nth-child(6n+5) { transform: rotate(-3deg); }
   .pc-img:nth-child(6n+6) { transform: rotate( 1deg); }
 
+  /* ══════════════════════════════════════════════
+     MOBILE / RESPONSIVE  (≤ 768 px)
+  ══════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav { padding: 1rem 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.65rem; letter-spacing: 0.1em; }
+
+    /* Hero */
+    section.hero { min-height: 85vh; padding: 1rem; }
+    h1.hero-title { font-size: clamp(2.6rem, 12vw, 4.5rem); }
+    .hero-sub { font-size: 0.65rem; }
+    .hero-rule { height: 50px; }
+
+    /* Sections — reduce horizontal padding */
+    section { padding: 3.5rem 1.2rem; }
+
+    /* About */
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    h2.section-title { font-size: clamp(1.8rem, 7vw, 3rem); }
+
+    /* Films — stack the series hero card */
+    .film-card { grid-template-columns: 1fr !important; }
+    .film-poster { min-height: 240px !important; aspect-ratio: 16/9 !important; }
+    .film-info { padding: 1.2rem !important; }
+    .films-grid { grid-template-columns: 1fr !important; }
+
+    /* Episode strip — 6 cols → 3 cols */
+    .ep-strip { grid-template-columns: repeat(3, 1fr) !important; }
+
+    /* Awards — inline-style grids: collapse to 3 cols for winners, 3 for selections */
+    .awards-inner > div[style*="repeat(6"] { grid-template-columns: repeat(3, 1fr) !important; }
+    .awards-inner > div[style*="repeat(9"] { grid-template-columns: repeat(4, 1fr) !important; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .awards-count { font-size: clamp(3rem, 12vw, 6rem); }
+
+    /* Watch */
+    .watch-inner { grid-template-columns: 1fr !important; }
+    .watch-embed { aspect-ratio: 16/9; }
+
+    /* Polaroid carousel — smaller thumbnails */
+    .pc-img { width: 150px !important; }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.2rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; } /* too cramped — logo-only on tiny screens */
+    .ep-strip { grid-template-columns: repeat(2, 1fr) !important; }
+    .awards-inner > div[style*="repeat(6"] { grid-template-columns: repeat(2, 1fr) !important; }
+    .awards-inner > div[style*="repeat(9"] { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+
   /* ── LABEL BANNER ── */
   .mockup-label {
     position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
@@ -449,7 +505,7 @@
     </div>
 
     <!-- Episode strip -->
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:1.5px;margin-top:1.5px;">
+    <div class="ep-strip" style="display:grid;grid-template-columns:repeat(6,1fr);gap:1.5px;margin-top:1.5px;">
 
       <div style="background:var(--card-bg);overflow:hidden;">
         <img src="./photos/house-of-fun.jpg"

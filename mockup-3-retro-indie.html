@@ -474,6 +474,67 @@
     font-family: var(--mono); font-size: 0.72rem; color: #3a2a1a;
   }
 
+  /* ══════════════════════════════════════════════
+     MOBILE / RESPONSIVE  (≤ 768 px)
+  ══════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav { padding: 0.8rem 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.72rem; }
+
+    /* Hero — split 2-col → single col, left on top */
+    .hero { grid-template-columns: 1fr !important; min-height: auto; }
+    .hero-left { padding: 4rem 1.5rem 2rem; border-right: none; border-bottom: 2px solid rgba(245,200,66,0.2); }
+    .hero-right { min-height: 55vw; }
+    h1.hero-title { font-size: clamp(3rem, 12vw, 6rem); }
+    .hero-tagline { font-size: 0.9rem; }
+    .hero::before, .hero::after { display: none; }
+
+    /* Sections */
+    section.about, section.films, section.awards, section.watch { padding: 3.5rem 1.2rem; }
+
+    /* About */
+    .about-inner { grid-template-columns: 1fr !important; gap: 2rem; }
+    h2.section-title { font-size: clamp(2.2rem, 8vw, 4rem); }
+
+    /* Films */
+    .films-grid { grid-template-columns: 1fr !important; }
+    .film-card-visual { aspect-ratio: 16/9 !important; }
+
+    /* Awards */
+    .awards-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Awards laurels */
+    div[id$="-laurels"] > div[style*="repeat(6"] { grid-template-columns: repeat(3, 1fr) !important; }
+    div[id$="-laurels"] > div[style*="repeat(9"] { grid-template-columns: repeat(4, 1fr) !important; }
+
+    /* Watch */
+    .watch-layout { grid-template-columns: 1fr !important; }
+    .watch-embed { aspect-ratio: 16/9; }
+    .watch-links { flex-direction: row; flex-wrap: wrap; gap: 0.6rem; }
+    .watch-link { flex: 1 1 calc(50% - 0.3rem); }
+
+    /* Strip ticker */
+    .strip { gap: 1.5rem; padding: 0.9rem 1.2rem; overflow-x: hidden; }
+
+    /* Polaroid carousel */
+    .pc-img { width: 150px !important; }
+
+    /* Footer */
+    .footer-top { flex-direction: column; gap: 1rem; padding: 2rem 1.2rem; }
+    .footer-bottom { padding: 1rem 1.2rem; flex-direction: column; gap: 0.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    .hero-right { min-height: 70vw; }
+    .awards-grid { grid-template-columns: 1fr !important; }
+    div[id$="-laurels"] > div[style*="repeat(6"] { grid-template-columns: repeat(2, 1fr) !important; }
+    div[id$="-laurels"] > div[style*="repeat(9"] { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+
   /* ── MOCKUP LABEL ── */
   .mockup-label {
     position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;

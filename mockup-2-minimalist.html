@@ -322,6 +322,73 @@
   .footer-links a:hover { color: white; }
   .footer-copy { font-size: 0.7rem; }
 
+  /* ══════════════════════════════════════════════
+     MOBILE / RESPONSIVE  (≤ 768 px)
+  ══════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav { padding: 1rem 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.65rem; }
+
+    /* Sections */
+    section { padding: 3.5rem 1.2rem; }
+
+    /* Hero — the title is enormous (up to 16rem) on desktop; cap it hard */
+    h1.hero-title { font-size: clamp(3rem, 14vw, 6rem) !important; }
+    .hero { padding: 0 1.2rem; }
+    .hero-tagline { font-size: 1rem; max-width: 100%; }
+
+    /* About */
+    .about-inner { grid-template-columns: 1fr !important; gap: 2rem; }
+    .about-body { padding-top: 0; }
+    h2.section-title { font-size: clamp(2rem, 8vw, 4rem); }
+
+    /* Films — film list row has 4 explicit columns */
+    .film-row {
+      grid-template-columns: 40px 1fr auto !important;
+      gap: 0.8rem;
+    }
+    .film-year-main { display: none; } /* drop year col on mobile */
+
+    /* Film detail card */
+    .film-detail-card { grid-template-columns: 1fr !important; }
+    .film-detail-visual { min-height: 220px !important; aspect-ratio: 16/9; }
+    .film-detail-body { padding: 1.5rem; }
+
+    /* Awards */
+    .awards-intro { grid-template-columns: 1fr !important; gap: 1.5rem; }
+    .awards-intro p { padding-top: 0; }
+    .awards-table th:nth-child(3),
+    .awards-table td:nth-child(3) { display: none; } /* hide festival col on small screens */
+
+    /* Awards laurels */
+    div[id$="-laurels"] > div[style*="repeat(6"] { grid-template-columns: repeat(3, 1fr) !important; }
+    div[id$="-laurels"] > div[style*="repeat(9"] { grid-template-columns: repeat(4, 1fr) !important; }
+
+    /* Watch */
+    .watch-grid { grid-template-columns: 1fr !important; }
+    .watch-main-embed { aspect-ratio: 16/9; }
+    .watch-side { flex-direction: row; flex-wrap: wrap; gap: 0.8rem; }
+    .watch-link-card { flex: 1 1 calc(50% - 0.4rem); }
+
+    /* Polaroid carousel */
+    .pc-img { width: 150px !important; }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 1rem; padding: 2rem 1.2rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    h1.hero-title { font-size: clamp(2.5rem, 15vw, 4rem) !important; }
+    .film-row { grid-template-columns: 1fr auto !important; }
+    .film-num { display: none; }
+    div[id$="-laurels"] > div[style*="repeat(6"] { grid-template-columns: repeat(2, 1fr) !important; }
+    div[id$="-laurels"] > div[style*="repeat(9"] { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+
   /* ── MOCKUP LABEL ── */
   .mockup-label {
     position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
