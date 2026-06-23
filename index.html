@@ -749,17 +749,18 @@
         </div>
       </div>
 
-      <!-- Rows 3–4: Official Selections (4 per row) -->
+      <!-- Rows 3–4: Official Selections — same column width as winners (5 per row),
+           3 items in last row centred via flex justify-content -->
       <div style="font-family:var(--sans);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#aaa;margin-bottom:8px;">Official Selections</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;">
-        <img src="./laurels/sel-la-short-2026.png"            style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-canadian-tamil-a-2025.png"    style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-niagara-2025.png"             style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-pickering-2025.png"           style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-portland-2024.png"            style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-pickering-2024.png"           style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-toronto-2024.png"             style="width:100%;height:auto;display:block;">
-        <img src="./laurels/sel-niagara-2024.png"             style="width:100%;height:auto;display:block;">
+      <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;">
+        <img src="./laurels/sel-la-short-2026.png"         style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-canadian-tamil-a-2025.png" style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-niagara-2025.png"          style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-pickering-2025.png"        style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-portland-2024.png"         style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-pickering-2024.png"        style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-toronto-2024.png"          style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
+        <img src="./laurels/sel-niagara-2024.png"          style="width:calc(20% - 4px);height:auto;display:block;flex-shrink:0;">
       </div>
 
     </div>

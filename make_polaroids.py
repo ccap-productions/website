@@ -9,7 +9,7 @@ Run from the website directory:
 Output: ./photos/polaroids/  (one PNG per source photo)
 """
 
-from PIL import Image
+from PIL import Image, ImageOps
 import os, glob, sys
 
 # ── POLAROID DIMENSIONS ───────────────────────────────────────────
@@ -46,7 +46,8 @@ SKIP = {
 
 
 def crop_to_ratio(img, target_w, target_h):
-    """Centre-crop image to target aspect ratio, biased slightly toward top."""
+    """Apply EXIF rotation then centre-crop to target aspect ratio."""
+    img = ImageOps.exif_transpose(img)   # fix sideways/upside-down EXIF
     w, h = img.size
     target_r = target_w / target_h
     current_r = w / h
@@ -57,9 +58,10 @@ def crop_to_ratio(img, target_w, target_h):
         x0 = (w - new_w) // 2
         img = img.crop((x0, 0, x0 + new_w, h))
     else:
-        # Image is taller — keep from top (preserves faces / action)
+        # Image is taller (portrait) — centre crop vertically
+        # (top-bias missed subjects in lower half of portrait shots)
         new_h = int(w / target_r)
-        top = min(int(h * 0.12), h - new_h)   # bias ~12% from top
+        top = (h - new_h) // 2
         img = img.crop((0, top, w, top + new_h))
 
     return img.resize((target_w, target_h), Image.LANCZOS)
