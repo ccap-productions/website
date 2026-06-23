@@ -47,31 +47,45 @@ SKIP = {
 }
 
 
-def crop_to_ratio(img, target_w, target_h):
-    """Apply EXIF rotation then centre-crop to target aspect ratio."""
+# Per-file crop centre overrides.
+# (cx, cy) = fraction of source image to use as crop centre.
+#   cx: 0.0=left edge  0.5=centre  1.0=right edge
+#   cy: 0.0=top edge   0.5=centre  1.0=bottom edge
+CROP_CENTER = {
+    '20230127_184811.jpg': (0.28, 0.5),  # actress on far-left was cropped out
+    'deflating.png':       (0.5,  0.10), # head cut off — pull crop to top
+    'house-of-fun.jpg':    (0.5,  0.42), # people tight — slight upper bias
+    'rocco_1.90.1.jpg':    (0.5,  0.32), # show faces not bathroom wall
+    '20250426_160237.jpg': (0.58, 0.5),  # Busty on far-right was cropped out
+}
+
+
+def crop_to_ratio(img, target_w, target_h, cx=0.5, cy=0.5):
+    """Apply EXIF rotation then crop to target aspect ratio centred at (cx, cy)."""
     img = ImageOps.exif_transpose(img)   # fix sideways/upside-down EXIF
     w, h = img.size
     target_r = target_w / target_h
     current_r = w / h
 
     if current_r > target_r:
-        # Image is wider — crop left and right equally
+        # Image is wider — crop sides
         new_w = int(h * target_r)
-        x0 = (w - new_w) // 2
+        x0 = max(0, min(int(w * cx - new_w / 2), w - new_w))
         img = img.crop((x0, 0, x0 + new_w, h))
     else:
-        # Image is taller (portrait) — centre crop vertically
-        # (top-bias missed subjects in lower half of portrait shots)
+        # Image is taller — crop top/bottom
         new_h = int(w / target_r)
-        top = (h - new_h) // 2
-        img = img.crop((0, top, w, top + new_h))
+        y0 = max(0, min(int(h * cy - new_h / 2), h - new_h))
+        img = img.crop((0, y0, w, y0 + new_h))
 
     return img.resize((target_w, target_h), Image.LANCZOS)
 
 
 def make_polaroid(src_path, dst_path):
-    img = Image.open(src_path).convert('RGB')
-    photo = crop_to_ratio(img, INNER_W, INNER_H)
+    img  = Image.open(src_path).convert('RGB')
+    fname = os.path.basename(src_path)
+    cx, cy = CROP_CENTER.get(fname, (0.5, 0.5))
+    photo = crop_to_ratio(img, INNER_W, INNER_H, cx=cx, cy=cy)
 
     # White Polaroid frame
     frame = Image.new('RGB', (OUTER_W, OUTER_H), WHITE)
