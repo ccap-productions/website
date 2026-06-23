@@ -28,6 +28,8 @@ WHITE   = (255, 255, 255)
 SKIP = {
     'test-polaroid.png', 'sample laurel.png', 'font_sans_comparison.png',
     '2023-09-30 - Copy.png',
+    # NJ icon variants — branding assets, not photos
+    'new jersey icon.png', 'new jersey icon gold.png', 'new jersey icon yellow.png',
     # PNG duplicates where a JPG version exists
     'busty.png', 'cop-stop.png', 'house-of-fun.png',
     # Promo materials (not production stills)
