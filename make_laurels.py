@@ -151,6 +151,7 @@ FESTIVALS = [
     ("AWARD WINNER",       "New York Film &",  "Actress Award",     "2026", "winner-ny-actress-2026"),
     ("AWARD WINNER",       "Hollywood Int'l",  "Indie Film Awards", "2026", "winner-hollywood-intl-2026"),
     ("AWARD WINNER",       "Tokyo Film &",     "Screenplay Awards", "2026", "winner-tokyo-2026"),
+    ("AWARD WINNER",       "Tamil Int'l",      "Film Festival",     "2025", "winner-canadian-tamil-2025"),
     # ── Finalists ─────────────────────────────────────────────────
     ("FINALIST",           "Portland Comedy",  "Film Festival",     "2023", "finalist-portland-2023"),
     ("FINALIST",           "Houston Comedy",   "Film Festival",     "2023", "finalist-houston-2023"),
